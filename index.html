@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orion Pulse — How it works</title>
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a href="index.html" class="brand">Orion Pulse</a>
+    <div class="brand-sub">Reporting platform — prototype</div>
+
+    <div class="nav-group-label">Overview</div>
+    <a href="index.html" class="nav-item active" data-page="index"><span class="nav-label-wrap"><span class="nav-dot"></span> How it works</span></a>
+
+    <div class="nav-group-label">Weekly entry</div>
+    <a href="entry.html" class="nav-item" data-page="entry"><span class="nav-label-wrap"><span class="nav-dot"></span> Enter this week's data</span></a>
+
+    <div class="nav-group-label">Owner / admin only</div>
+    <a href="execoverview.html" class="nav-item" data-page="execoverview"><span class="nav-label-wrap"><span class="nav-dot"></span> Executive overview</span><span class="lock-slot"></span></a>
+    <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="nav-label-wrap"><span class="nav-dot"></span> Live dashboard</span><span class="lock-slot"></span></a>
+    <a href="analytics.html" class="nav-item" data-page="analytics"><span class="nav-label-wrap"><span class="nav-dot"></span> Analytics</span><span class="lock-slot"></span></a>
+    <a href="deck.html" class="nav-item" data-page="deck"><span class="nav-label-wrap"><span class="nav-dot"></span> Leadership deck</span><span class="lock-slot"></span></a>
+    <a href="audit.html" class="nav-item" data-page="audit"><span class="nav-label-wrap"><span class="nav-dot"></span> Audit &amp; admin</span><span class="lock-slot"></span></a>
+    <a href="team.html" class="nav-item" data-page="team"><span class="nav-label-wrap"><span class="nav-dot"></span> Team &amp; permissions</span><span class="lock-slot"></span></a>
+
+    <div class="sidebar-foot">
+      Data is saved in this browser only.<br>
+      <button class="reset-link" id="resetDemoBtn">Reset demo data</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h1>How it works</h1>
+        <div class="sub">A walkthrough of the reporting platform in SOW-EHAI-2026-003</div>
+      </div>
+      <div class="role-switch">
+        <span id="adminBadge" class="chip owner" style="display:none;"><span class="mono-dot">O</span>Super admin access</span>
+        <label for="roleSelect">Signed in as</label>
+        <select id="roleSelect">
+          <option value="clinical">Clinical</option>
+          <option value="marketing">Marketing</option>
+          <option value="agency">Agency Operations</option>
+          <option value="intake">Intake</option>
+          <option value="owner">Owner / Admin</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="hero">
+        <h2>One record per entry. Never one file per team.</h2>
+        <p>Today, Clinical, Marketing, Agency Ops and Intake all type into the same shared workbook — so one save can quietly overwrite someone else's numbers. This prototype shows the replacement: every department gets its own scoped form, every submission becomes its own timestamped record, and the dashboard, analytics and leadership deck build themselves from that record store.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="entry.html">Try entering data →</a>
+          <a class="btn btn-ghost" href="execoverview.html">Jump to executive overview</a>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-step"><div class="num">01</div><h3>Scoped entry</h3><p>Each role only ever sees and edits its own metrics and narrative fields.</p><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="num">02</div><h3>Individual records</h3><p>Every submission is stored as its own record — nothing is overwritten in place.</p><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="num">03</div><h3>Analytics &amp; rollups</h3><p>Live status, trends and at-risk metrics are calculated automatically.</p><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="num">04</div><h3>Deck, auto-built</h3><p>The leadership meeting deck assembles itself from the current week's records.</p></div>
+      </div>
+
+      <div class="problem-solution">
+        <div class="ps-card problem">
+          <h3>Today</h3>
+          <ul>
+            <li>One shared .xltx — anyone's save can overwrite anyone else's cells</li>
+            <li>No record of who entered what, or when</li>
+            <li>Leadership deck rebuilt by hand from the workbook each week</li>
+            <li>No agency-wide view — someone has to manually roll everything up</li>
+          </ul>
+        </div>
+        <div class="ps-card solution">
+          <h3>With this platform</h3>
+          <ul>
+            <li>Each department has its own scoped form — logins keep everyone in their lane</li>
+            <li>Every entry is a timestamped, attributed record</li>
+            <li>Leadership deck generates on demand from live data</li>
+            <li>Owner / Admin gets agency-wide analytics, trends and a full audit trail</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="section-title" style="margin-top:30px;">Browse the prototype</h3>
+      <p class="section-desc">Six pages, each its own URL — click around like a real product. Owner / Admin pages are marked; switch roles with the selector top-right to unlock them.</p>
+      <div class="page-grid">
+        <a class="page-card" href="entry.html"><h3>Enter this week's data</h3><p>Scoped weekly entry form, changes per signed-in role.</p></a>
+        <a class="page-card" href="dashboard.html"><h3>Live dashboard <span class="pc-lock" data-page="dashboard"></span></h3><p>Cross-department KPI status with calculation transparency.</p></a>
+        <a class="page-card" href="analytics.html"><h3>Analytics <span class="pc-lock" data-page="analytics"></span></h3><p>Trend explorer, at-risk metrics, department comparisons.</p></a>
+        <a class="page-card" href="execoverview.html"><h3>Executive overview <span class="pc-lock" data-page="execoverview"></span></h3><p>Agency-wide rollup and recent activity feed.</p></a>
+        <a class="page-card" href="deck.html"><h3>Leadership deck <span class="pc-lock" data-page="deck"></span></h3><p>Auto-generated slides from this week's records.</p></a>
+        <a class="page-card" href="audit.html"><h3>Audit &amp; admin <span class="pc-lock" data-page="audit"></span></h3><p>Full record ledger, lock controls, restore.</p></a>
+      </div>
+      <p class="section-desc" style="margin-top:14px;"><a href="team.html" style="color:var(--clinical); font-weight:600; text-decoration:none;">Team &amp; permissions →</a> see exactly who can access what.</p>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><span class="dot"></span><span id="toastText"></span></div>
+
+<script src="shared/app.js"></script>
+<script>
+initChrome();
+function refreshCardLocks(){
+  document.querySelectorAll('.pc-lock').forEach(el=>{
+    const p = el.dataset.page;
+    el.innerHTML = (ADMIN_ONLY.includes(p) && state.role!=='owner') ? LOCK_SVG : '';
+  });
+}
+refreshCardLocks();
+document.getElementById('roleSelect').addEventListener('change', refreshCardLocks);
+</script>
+</body>
+</html>

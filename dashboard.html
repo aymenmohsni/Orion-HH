@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orion Pulse — Live dashboard</title>
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a href="index.html" class="brand">Orion Pulse</a>
+    <div class="brand-sub">Reporting platform — prototype</div>
+
+    <div class="nav-group-label">Overview</div>
+    <a href="index.html" class="nav-item" data-page="index"><span class="nav-label-wrap"><span class="nav-dot"></span> How it works</span></a>
+
+    <div class="nav-group-label">Weekly entry</div>
+    <a href="entry.html" class="nav-item" data-page="entry"><span class="nav-label-wrap"><span class="nav-dot"></span> Enter this week's data</span></a>
+
+    <div class="nav-group-label">Owner / admin only</div>
+    <a href="execoverview.html" class="nav-item" data-page="execoverview"><span class="nav-label-wrap"><span class="nav-dot"></span> Executive overview</span><span class="lock-slot"></span></a>
+    <a href="dashboard.html" class="nav-item active" data-page="dashboard"><span class="nav-label-wrap"><span class="nav-dot"></span> Live dashboard</span><span class="lock-slot"></span></a>
+    <a href="analytics.html" class="nav-item" data-page="analytics"><span class="nav-label-wrap"><span class="nav-dot"></span> Analytics</span><span class="lock-slot"></span></a>
+    <a href="deck.html" class="nav-item" data-page="deck"><span class="nav-label-wrap"><span class="nav-dot"></span> Leadership deck</span><span class="lock-slot"></span></a>
+    <a href="audit.html" class="nav-item" data-page="audit"><span class="nav-label-wrap"><span class="nav-dot"></span> Audit &amp; admin</span><span class="lock-slot"></span></a>
+    <a href="team.html" class="nav-item" data-page="team"><span class="nav-label-wrap"><span class="nav-dot"></span> Team &amp; permissions</span><span class="lock-slot"></span></a>
+
+    <div class="sidebar-foot">
+      Data is saved in this browser only.<br>
+      <button class="reset-link" id="resetDemoBtn">Reset demo data</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h1>Live dashboard</h1>
+        <div class="sub">Read-only rollup, calculated from submitted records</div>
+      </div>
+      <div class="role-switch">
+        <span id="adminBadge" class="chip owner" style="display:none;"><span class="mono-dot">O</span>Super admin access</span>
+        <label for="roleSelect">Signed in as</label>
+        <select id="roleSelect">
+          <option value="clinical">Clinical</option>
+          <option value="marketing">Marketing</option>
+          <option value="agency">Agency Operations</option>
+          <option value="intake">Intake</option>
+          <option value="owner">Owner / Admin</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="dashboardBody"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><span class="dot"></span><span id="toastText"></span></div>
+<div class="modal-overlay" id="calcModal" onclick="closeCalcIfOverlay(event)">
+  <div class="modal-box">
+    <div class="modal-head"><h3 id="calcTitle">Metric</h3><button class="modal-close" onclick="closeCalc()">&times;</button></div>
+    <div id="calcBody"></div>
+  </div>
+</div>
+
+<script src="shared/app.js"></script>
+<script>
+function renderPage(){ renderDashboardPage(); }
+initChrome();
+renderPage();
+</script>
+</body>
+</html>
